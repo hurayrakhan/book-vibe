@@ -2,7 +2,8 @@ import React from 'react';
 
 const Navbar = () => {
     return (
-        <div className="navbar bg-base-200 rounded px-4">
+        <div className='bg-base-200'>
+            <div className="w-10/12 mx-auto navbar rounded p-4">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -27,6 +28,7 @@ const Navbar = () => {
                 <a className="btn bg-[#23BE0A] text-white">Sign In</a>
                 <a className="btn bg-[#59C6D2] text-white">Sign Up</a>
             </div>
+        </div>
         </div>
     );
 };
