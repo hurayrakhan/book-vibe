@@ -15,10 +15,11 @@ export const router = createBrowserRouter([
       children:[
         {
             index: true,
+            loader: () => fetch('booksData.json'),
             path:'/',
-            element: <Home></Home>
+            element: <Home></Home>,
         },
-        
+
       ]
     },
     // {
