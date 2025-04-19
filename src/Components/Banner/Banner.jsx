@@ -3,7 +3,7 @@ import React from 'react';
 const Banner = () => {
     return (
        
-            <div className="flex w-9/12 mx-auto justify-between items-center py-16">
+            <div className="flex flex-col-reverse lg:flex-row w-9/12 mx-auto justify-between items-center py-16">
                 <div className='w-sm'>
                     <h1 className="text-5xl font-bold py-4">Books to freshen up your bookshelf</h1>
                     

@@ -1,14 +1,17 @@
 import React from 'react';
 import { FaStar } from "react-icons/fa6";
 import { FaRegStarHalfStroke } from "react-icons/fa6";
+import { Link } from 'react-router';
+
 
 
 const Books = ({ book }) => {
 
-    const { publisher, bookName, author, image, yearOfPublishing, category, totalPages, rating } = book;
+    const { publisher, bookName, author, image, yearOfPublishing, category, totalPages, rating, bookId} = book;
     
     return (
-        <div className="card bg-base-100  shadow-xl border border-gray-300 p-5">
+        <Link to={`/book/${bookId}`}>
+            <div className="card bg-base-100  shadow-xl border border-gray-300 p-5">
             <figure className='p-5 bg-gray-200'>
                 <img
                     src={image}
@@ -40,6 +43,7 @@ const Books = ({ book }) => {
                 </div>
             </div>
         </div>
+        </Link>
     );
 };
 
