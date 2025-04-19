@@ -8,6 +8,7 @@ import ErrorPage from '../Pages/ErrorPage/ErrorPage';
 import Home from '../Pages/Home/Home';
 import BookDetails from "../Pages/Books/BookDetails";
 import About from "../Pages/About/About";
+import BookLists from "../Pages/BookList/BookLists";
 
 export const router = createBrowserRouter([
     {
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
         {
           path: '/about',
           element: <About></About>,
+        },
+        {
+          path: 'bookLists',
+          element: <BookLists></BookLists>
         }
 
       ]
