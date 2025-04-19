@@ -1,6 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ListedBooks from './ListedBooks';
+import { useLoaderData } from 'react-router';
+import { getStoredData } from '../../utilities/storeDataToDb';
 
 const BookLists = () => {
+    const [readLists, setReadLists] = useState([])
+    const booksData = useLoaderData();
+    useEffect(() => {
+        const storedBookId = getStoredData();
+        const convertedID = storedBookId.map(id => parseInt(id));
+        const readListsData = booksData.filter(book => convertedID.includes(book.bookId));
+        setReadLists(readListsData);
+
+    }, []);
+    
+    
+
+
     return (
         <div className='w-10/12 mx-auto'>
             <div className='bg-gray-200 text-center p-5 rounded-xl my-4'>
@@ -10,13 +26,14 @@ const BookLists = () => {
             
             {/* name of each tab group should be unique */}
             <div className="tabs tabs-lift">
-                <input type="radio" name="my_tabs_3" className="tab" aria-label="Tab 1" />
-                <div className="tab-content bg-base-100 border-base-300 p-6">Tab content 1</div>
+                <input type="radio" name="my_tabs_3" className="tab" aria-label="Read Lists" defaultChecked />
+                <div className="tab-content bg-base-100 border-base-300 p-6">
+                    {
+                        readLists.map(book => <ListedBooks key={book.bookId} book={book}></ListedBooks>)
+                    }
+                </div>
 
-                <input type="radio" name="my_tabs_3" className="tab" aria-label="Tab 2" defaultChecked />
-                <div className="tab-content bg-base-100 border-base-300 p-6">Tab content 2</div>
-
-                <input type="radio" name="my_tabs_3" className="tab" aria-label="Tab 3" />
+                <input type="radio" name="my_tabs_3" className="tab" aria-label="Wish Lists" />
                 <div className="tab-content bg-base-100 border-base-300 p-6">Tab content 3</div>
             </div>
 
