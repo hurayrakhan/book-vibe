@@ -15,7 +15,7 @@ const BookDetails = () => {
             <div className='flex-1 p-20 bg-gray-200 rounded-l-xl'>
                 <img className='' src={image} alt="" />
             </div>
-            <div className='flex-1 p-'>
+            <div className='flex-1 p-5'>
                 <h3>Name of the book: {bookName}</h3>
                 <h4>Written by : {author}</h4>
                 <h4>Category : {category}</h4>
