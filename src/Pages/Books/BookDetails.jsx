@@ -43,9 +43,9 @@ const BookDetails = () => {
                         <p>{rating}</p>
                     </div>
                 </div>
-                <div>
-                    <button onClick={() => handleReadList(id)} className='btn'>Read</button>
-                    <button className='btn'>Wishlist</button>
+                <div className=''>
+                    <button onClick={() => handleReadList(id)} className='btn'>Mark as Read</button>
+                    <button className='btn bg-[#59C6D2] text-white ml-5'>Wish List</button>
                 </div>
             </div>
         </div>

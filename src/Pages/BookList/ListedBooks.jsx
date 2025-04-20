@@ -6,10 +6,10 @@ const ListedBooks = ({book}) => {
     
     return (
         <div>
-            <div className="card card-side bg-base-100 shadow-sm my-4 border border-gray-200">
+            <div className="flex flex-col md:card md:card-side bg-base-100 shadow-sm my-4 border border-gray-200">
 
-                <div className='p-5 rounded-xl bg-gray-200'>
-                    <img className='h-42'
+                <div className=' rounded=l-xl bg-gray-200'>
+                    <img className='h-36 w-24 mx-auto my-10 md:m-10'
                         src={image}
                         alt="Movie" />
                 </div>
