@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { NavLink } from 'react-router';
 
 const Navbar = () => {
     return (
@@ -13,18 +13,30 @@ const Navbar = () => {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li><Link to='/'>Home</Link></li>
-                            <li><Link to='/about'>About</Link></li>
-                            <li><Link to='/bookLists'>Book Lists</Link></li>
+                            <li>
+                                <NavLink className={({ isActive }) => isActive ? 'text-indigo-800 border border-indigo-800 font-semibold ' : ''} to='/'>Home</NavLink>
+                            </li>
+                            <li>
+                                <NavLink className={({ isActive }) => isActive ? 'text-indigo-800 border border-indigo-800 font-semibold ' : ''} to='/about'>About</NavLink>
+                            </li>
+                            <li>
+                                <NavLink className={({ isActive }) => isActive ? 'text-indigo-800 border border-indigo-800 font-semibold ' : ''} to='/bookLists'>Book Lists</NavLink>
+                            </li>
                         </ul>
                     </div>
                     <a className=" text-2xl font-bold">Book <span className='text-red-800'>Vibe</span></a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
-                        <li><Link to='/'>Home</Link></li>
-                        <li><Link to='/about'>About</Link></li>
-                        <li><Link to='/bookLists'>Book Lists</Link></li>
+                    <ul className="menu menu-horizontal px-1 gap-2">
+                        <li>
+                            <NavLink className={({ isActive }) => isActive ? 'text-indigo-800 border border-indigo-800 font-semibold ' : ''} to='/'>Home</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className={({ isActive }) => isActive ? 'text-indigo-800 border border-indigo-800 font-semibold ' : ''} to='/about'>About</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className={({ isActive }) => isActive ? 'text-indigo-800 border border-indigo-800 font-semibold ' : ''} to='/bookLists'>Book Lists</NavLink>
+                        </li>
                     </ul>
                 </div>
                 <div className="navbar-end gap-2">

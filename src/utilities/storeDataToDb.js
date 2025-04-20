@@ -34,7 +34,6 @@ const getStoredDataWishLists = () => {
 
     if (storedWishListsSTR) {
         const storedData = JSON.parse(storedWishListsSTR);
-        console.log(storedData)
         return storedData;
     }
     else {
@@ -47,8 +46,6 @@ const addToStoreDBWishLists = (id) => {
 
     const storedReadListsSTR = localStorage.getItem('readLists');
     const storedReadLists = JSON.parse(storedReadListsSTR);
-    console.log(storedReadLists)
-    console.log(storedData)
 
     if (storedReadLists.includes(id)) {
         alert('This Book Already Read.')

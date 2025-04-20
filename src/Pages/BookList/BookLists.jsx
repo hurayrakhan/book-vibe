@@ -23,8 +23,6 @@ const BookLists = () => {
         setWishLists(wishListsData);
 
     }, []);
-
-    console.log(wishLists)
     
     
 
