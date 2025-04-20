@@ -1,18 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import ListedBooks from './ListedBooks';
 import { useLoaderData } from 'react-router';
-import { getStoredData } from '../../utilities/storeDataToDb';
+import { getStoredDataReadLists, getStoredDataWishLists } from '../../utilities/storeDataToDb';
 
 const BookLists = () => {
-    const [readLists, setReadLists] = useState([])
+    const [readLists, setReadLists] = useState([]);
+    const [wishLists, setWishLists] = useState([]);
+
     const booksData = useLoaderData();
+
     useEffect(() => {
-        const storedBookId = getStoredData();
-        const convertedID = storedBookId.map(id => parseInt(id));
-        const readListsData = booksData.filter(book => convertedID.includes(book.bookId));
+        // readLists
+        const storedBookIdReadLists = getStoredDataReadLists();
+        const convertedIDReadLists = storedBookIdReadLists.map(id => parseInt(id));
+        const readListsData = booksData.filter(book => convertedIDReadLists.includes(book.bookId));
         setReadLists(readListsData);
 
+        // wishLists
+        const storedBookIdWishLists = getStoredDataWishLists();
+        const convertedIDWishLists = storedBookIdWishLists.map(id => parseInt(id));
+        const wishListsData = booksData.filter(book => convertedIDWishLists.includes(book.bookId));
+        setWishLists(wishListsData);
+
     }, []);
+
+    console.log(wishLists)
     
     
 
@@ -34,7 +46,11 @@ const BookLists = () => {
                 </div>
 
                 <input type="radio" name="my_tabs_3" className="tab" aria-label="Wish Lists" />
-                <div className="tab-content bg-base-100 border-base-300 p-6">Tab content 3</div>
+                <div className="tab-content bg-base-100 border-base-300 p-6">
+                {
+                    wishLists.map(book => <ListedBooks key={book.bookId} book={book}></ListedBooks>)
+                }
+                </div>
             </div>
 
         </div>

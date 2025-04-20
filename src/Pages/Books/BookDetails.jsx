@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
-import { addToStoreDB } from '../../utilities/storeDataToDb';
+import { addToStoreDBReadLists, addToStoreDBWishLists } from '../../utilities/storeDataToDb';
 
 const BookDetails = () => {
 
@@ -14,8 +14,12 @@ const BookDetails = () => {
     const handleReadList = (id) => {
 
 
-        addToStoreDB(id)
+        addToStoreDBReadLists(id)
     };
+
+    const handleWishList = (id) => {
+        addToStoreDBWishLists(id)
+    }
     
     const { publisher, bookName, author, image, yearOfPublishing, review, category, totalPages, rating} = book;
     return (
@@ -45,7 +49,7 @@ const BookDetails = () => {
                 </div>
                 <div className=''>
                     <button onClick={() => handleReadList(id)} className='btn'>Mark as Read</button>
-                    <button className='btn bg-[#59C6D2] text-white ml-5'>Wish List</button>
+                    <button onClick={() => handleWishList(id)} className='btn bg-[#59C6D2] text-white ml-5'>Wish List</button>
                 </div>
             </div>
         </div>
